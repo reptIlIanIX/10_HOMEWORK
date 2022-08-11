@@ -22,7 +22,8 @@ def candidates_index(uid):
 @app.route("/skills/<uid>")
 def skills_index(uid):
     skills = ''
-    skills += f"<pre>{get_by_skill(uid.lower())} </pre>"
+    skills += f"<pre>{get_by_skill(str(uid))}</pre>"
+
     return skills
 
 

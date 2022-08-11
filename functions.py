@@ -19,10 +19,13 @@ def get_by_pk(pk):
                    f'<pre>\nИмя кандидата {item["name"]}\nПозиция кандидата {item["position"]}\nНавыки через запятую {item["skills"]}</pre>'
 
 
+text = []
+
+
 def get_by_skill(skill_name):
     for item in load_candidates():
-        if skill_name in item['skills']:
-            return f'<pre>\nИмя кандидата {item["name"]}\nПозиция кандидата {item["position"]}\nНавыки через запятую {item["skills"]}</pre>'
-
-
-
+        if skill_name.lower() in item['skills'].lower():
+            text.append(
+                f'\nИмя кандидата {item["name"]}\nПозиция кандидата {item["position"]}\nНавыки через запятую {item["skills"]}')
+    join_text = '\n'.join(text)
+    return join_text
